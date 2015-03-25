@@ -37,9 +37,9 @@
 		1BD244C91AC1ADCD00ED0449 /* CadastroUsuarioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadastroUsuarioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD244CE1AC1ADCD00ED0449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD244CF1AC1ADCD00ED0449 /* CadastroUsuarioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CadastroUsuarioTests.m; sourceTree = "<group>"; };
-		1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroViewController.h; sourceTree = "<group>"; };
-		1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroViewController.m; sourceTree = "<group>"; };
-		1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CadastroViewController.xib; sourceTree = "<group>"; };
+		1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CadastroViewController.h; path = ../CadastroViewController.h; sourceTree = "<group>"; };
+		1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CadastroViewController.m; path = ../CadastroViewController.m; sourceTree = "<group>"; };
+		1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CadastroViewController.xib; path = ../CadastroViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +63,6 @@
 		1BD244AD1AC1ADCD00ED0449 = {
 			isa = PBXGroup;
 			children = (
-				1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */,
-				1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */,
-				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
 				1BD244B81AC1ADCD00ED0449 /* CadastroUsuario */,
 				1BD244CC1AC1ADCD00ED0449 /* CadastroUsuarioTests */,
 				1BD244B71AC1ADCD00ED0449 /* Products */,
@@ -84,6 +81,9 @@
 		1BD244B81AC1ADCD00ED0449 /* CadastroUsuario */ = {
 			isa = PBXGroup;
 			children = (
+				1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */,
+				1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */,
+				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
 				1BD244BD1AC1ADCD00ED0449 /* AppDelegate.h */,
 				1BD244BE1AC1ADCD00ED0449 /* AppDelegate.m */,
 				1BD244C01AC1ADCD00ED0449 /* Images.xcassets */,
@@ -404,6 +404,7 @@
 				1BD244D51AC1ADCD00ED0449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BD244D61AC1ADCD00ED0449 /* Build configuration list for PBXNativeTarget "CadastroUsuarioTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +413,7 @@
 				1BD244D81AC1ADCD00ED0449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

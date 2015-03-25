@@ -9,6 +9,7 @@
                 <outlet property="scrollView" destination="S4h-n4-NIP" id="hwn-ak-oIX"/>
                 <outlet property="view" destination="G5T-Bk-TRT" id="jAM-lT-D6F"/>
                 <outlet property="viewFormulario" destination="bxe-Wl-Gc5" id="2XM-Fi-skB"/>
+                <outlet property="viewListaUsuarios" destination="BnV-Ph-mu3" id="Qz2-KF-ETT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -83,6 +84,32 @@
                 </mask>
             </variation>
             <point key="canvasLocation" x="123.5" y="355.5"/>
+        </view>
+        <view contentMode="center" id="BnV-Ph-mu3" userLabel="viewListaUsuarios">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tbN-Gc-iSh">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    </variation>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="tbN-Gc-iSh"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="tbN-Gc-iSh"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="570.5" y="355.5"/>
         </view>
     </objects>
 </document>

@@ -12,6 +12,7 @@
 
 @property ( nonatomic, strong ) IBOutlet UIScrollView *scrollView;
 @property ( nonatomic, strong ) IBOutlet UIView       *viewFormulario;
+@property ( nonatomic, strong ) IBOutlet UIView       *viewListaUsuarios;
 
 @end
 
@@ -26,14 +27,22 @@
         
         CGRect bigRect = self.view.bounds;
         bigRect.size.width *= 2.0;
-        
+        CGRect screenRect = self.view.bounds;
         //self.viewFormulario = [ [UIView alloc] initWithFrame: bigRect ];
         
         //self.scrollView = [ [UIScrollView alloc] init ];
         self.scrollView.pagingEnabled = YES;
+        
+      //  self.viewListaUsuarios.window.frame.origin.x += 100;
+        
         [ self.scrollView addSubview: self.viewFormulario ];
+        screenRect.origin.x += screenRect.size.width;
+       // self.viewListaUsuarios = [ [UIView alloc] initWithFrame: screenRect ];
+        [ self.scrollView addSubview: self.viewListaUsuarios ];
+        //self.viewListaUsuarios. .origin.x += 100;
         
         self.scrollView.contentSize = bigRect.size;
+        
     }
         
     return self;
