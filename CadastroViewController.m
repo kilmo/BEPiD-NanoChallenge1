@@ -28,6 +28,9 @@
         CGRect bigRect = self.view.bounds;
         bigRect.size.width *= 2.0;
         CGRect screenRect = self.view.bounds;
+        CGPoint trans;
+        trans.x = self.view.bounds.size.width;
+        
         //self.viewFormulario = [ [UIView alloc] initWithFrame: bigRect ];
         
         //self.scrollView = [ [UIScrollView alloc] init ];
@@ -37,9 +40,9 @@
         
         [ self.scrollView addSubview: self.viewFormulario ];
         screenRect.origin.x += screenRect.size.width;
-       // self.viewListaUsuarios = [ [UIView alloc] initWithFrame: screenRect ];
+        
+        self.viewListaUsuarios.frame = screenRect;
         [ self.scrollView addSubview: self.viewListaUsuarios ];
-        //self.viewListaUsuarios. .origin.x += 100;
         
         self.scrollView.contentSize = bigRect.size;
         
