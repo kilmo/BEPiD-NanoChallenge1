@@ -10,9 +10,35 @@
 
 @interface CadastroViewController ()
 
+@property ( nonatomic, strong ) IBOutlet UIScrollView *scrollView;
+@property ( nonatomic, strong ) IBOutlet UIView       *viewFormulario;
+
 @end
 
 @implementation CadastroViewController
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [ super initWithNibName: nibNameOrNil
+                            bundle: nibBundleOrNil ];
+    
+    if ( self ){
+        
+        CGRect bigRect = self.view.bounds;
+        bigRect.size.width *= 2.0;
+        
+        //self.viewFormulario = [ [UIView alloc] initWithFrame: bigRect ];
+        
+        //self.scrollView = [ [UIScrollView alloc] init ];
+        self.scrollView.pagingEnabled = YES;
+        [ self.scrollView addSubview: self.viewFormulario ];
+        
+        self.scrollView.contentSize = bigRect.size;
+    }
+        
+    return self;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
