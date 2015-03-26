@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CadastroViewController : UIViewController
+@interface CadastroViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

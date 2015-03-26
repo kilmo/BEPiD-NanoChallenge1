@@ -10,20 +10,10 @@
 
 @interface PerfilUsuario()
 
-@property (nonatomic,strong) NSString *nomePessoa;
-
 
 @end
 
 @implementation PerfilUsuario
-
-+(instancetype)inserirUsuario: (NSString*) nomeUsuario{
-    PerfilUsuario *pessoa = [[self alloc] init];
-    
-    pessoa.nomePessoa = nomeUsuario;
-    return pessoa;
-}
-
 
 
 

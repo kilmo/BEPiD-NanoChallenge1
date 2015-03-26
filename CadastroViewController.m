@@ -7,12 +7,21 @@
 //
 
 #import "CadastroViewController.h"
+#import "BancoDados.h"
+#import "PerfilUsuario.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface CadastroViewController ()
 
 @property ( nonatomic, strong ) IBOutlet UIScrollView *scrollView;
 @property ( nonatomic, strong ) IBOutlet UIView       *viewFormulario;
 @property ( nonatomic, strong ) IBOutlet UIView       *viewListaUsuarios;
+@property ( nonatomic, strong ) IBOutlet UITableView  *usersTableView;
+@property ( nonatomic, weak   ) IBOutlet UITextField  *userName;
+//@property ( nonatomic, assign ) IBAction
+@property ( nonatomic, strong ) NSMutableArray        *userListArray;
+
+
 
 @end
 
@@ -51,6 +60,85 @@
     return self;
     
 }
+
+//Parte Felipe
+
+//-------------------------------------------------------------------
+- (IBAction)authenticateButtonTapped:(id)sender {
+    LAContext *context = [ [LAContext alloc] init];
+    
+    NSError *error = nil;
+    
+    if ( [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error] ){
+        NSLog( @"User authenticated!");
+    }
+    else {
+        NSLog( @"User NOT authenticated!");
+        
+    }
+}
+//-------------------------------------------------------------------
+- (IBAction)adicionaUsuario{
+    NSLog( @"Usuário: %@ adicionado.", self.userName.text );
+    
+    [ [BancoDados sharedStore] criaUsuario: self.userName.text ];
+    [ self.usersTableView reloadData ];
+    
+}
+//-------------------------------------------------------------------
+- (NSInteger)tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger c = [ [[BancoDados sharedStore] listaNomes] count ];
+    
+    NSLog( @"table item count: %ld", c );
+    return c;
+}
+//-------------------------------------------------------------------
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    // Return the number of sections.
+//    return 1;
+//}
+//-------------------------------------------------------------------
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog( @"Creating cells..." );
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
+    
+    NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
+    PerfilUsuario *usuario = bDados[ indexPath.row ];
+    
+    if ( cell == nil ){
+        cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                       reuseIdentifier: @"UITableViewCell"];
+    }
+    
+    cell.textLabel.text = usuario.nomePessoa;
+    
+    return cell;
+}
+//-------------------------------------------------------------------
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog( @"Oka!" );
+//
+//    // Create an instance of UITableViewCell, with default appearance
+//    UITableViewCell *cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+//                                                    reuseIdentifier: @"UITableViewCell" ];
+//
+//    // Set the text on the cell with the description of the item
+//    // that is at the nth index of items, where n = row this cell
+//    // will appear in on the tableview
+//    NSArray *items = [ [BNRItemStore sharedStore] allItems ];
+//    BNRItem *item = items[ indexPath.row ];
+//
+//    cell.textLabel.text = [ item description ];
+//
+//    return cell;
+//}
+//-------------------------------------------------------------------
+
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

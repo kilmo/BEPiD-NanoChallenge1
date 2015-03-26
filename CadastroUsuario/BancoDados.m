@@ -48,7 +48,8 @@
 }
 
 -(PerfilUsuario *) criaUsuario: (NSString*) nomeUsuario{
-    PerfilUsuario *usuario = [PerfilUsuario inserirUsuario: nomeUsuario];
+    PerfilUsuario *usuario = [[PerfilUsuario alloc]init];
+    usuario.nomePessoa = nomeUsuario;
     [self.bancoDados addObject:usuario];
     
     return usuario;

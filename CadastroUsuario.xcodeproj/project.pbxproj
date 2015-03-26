@@ -89,9 +89,9 @@
 			children = (
 				1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */,
 				1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */,
+				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
 				1B739D1C1AC35180006EF4CE /* PerfilUsuario.h */,
 				1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */,
-				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
 				1BCE26731AC3371C00E2CCB0 /* BancoDados.h */,
 				1BCE26741AC3371C00E2CCB0 /* BancoDados.m */,
 				1BD244BD1AC1ADCD00ED0449 /* AppDelegate.h */,

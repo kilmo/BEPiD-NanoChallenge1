@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface PerfilUsuario : NSObject
-+(instancetype)inserirUsuario: (NSString*) nomeUsuario;
+@property (nonatomic,strong) NSString *nomePessoa;
 
 @end

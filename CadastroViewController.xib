@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CadastroViewController">
             <connections>
                 <outlet property="scrollView" destination="S4h-n4-NIP" id="hwn-ak-oIX"/>
+                <outlet property="userName" destination="PoE-0c-ThC" id="DBd-xD-MR0"/>
+                <outlet property="usersTableView" destination="tbN-Gc-iSh" id="D6z-3s-Z1P"/>
                 <outlet property="view" destination="G5T-Bk-TRT" id="jAM-lT-D6F"/>
                 <outlet property="viewFormulario" destination="bxe-Wl-Gc5" id="2XM-Fi-skB"/>
                 <outlet property="viewListaUsuarios" destination="BnV-Ph-mu3" id="Qz2-KF-ETT"/>
@@ -72,13 +74,20 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-0c-ThC">
+                    <rect key="frame" x="76" y="127" width="252" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-11-pl7">
-                    <rect key="frame" x="143" y="286" width="88" height="30"/>
-                    <color key="backgroundColor" red="0.83445785979999998" green="0.83445785979999998" blue="0.83445785979999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="185" y="180" width="143" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="Enviar">
+                    <state key="normal" title="Adicionar Usuário">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="adicionaUsuario" destination="-1" eventType="touchUpInside" id="p1d-fA-2hJ"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Formulario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8o-7w-QzO">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -89,11 +98,6 @@
                         <rect key="frame" x="126" y="323" width="123" height="21"/>
                     </variation>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-0c-ThC">
-                    <rect key="frame" x="76" y="127" width="252" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
@@ -118,6 +122,10 @@
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     </variation>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wGm-kv-7WZ"/>
+                        <outlet property="delegate" destination="-1" id="rMM-0E-Bdo"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
