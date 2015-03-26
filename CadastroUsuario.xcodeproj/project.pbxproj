@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B739D1E1AC35180006EF4CE /* PerfilUsuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */; };
+		1BCE26751AC3371C00E2CCB0 /* BancoDados.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE26741AC3371C00E2CCB0 /* BancoDados.m */; };
 		1BD244BC1AC1ADCD00ED0449 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244BB1AC1ADCD00ED0449 /* main.m */; };
 		1BD244BF1AC1ADCD00ED0449 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244BE1AC1ADCD00ED0449 /* AppDelegate.m */; };
 		1BD244C11AC1ADCD00ED0449 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD244C01AC1ADCD00ED0449 /* Images.xcassets */; };
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B739D1C1AC35180006EF4CE /* PerfilUsuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilUsuario.h; sourceTree = "<group>"; };
+		1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilUsuario.m; sourceTree = "<group>"; };
+		1BCE26731AC3371C00E2CCB0 /* BancoDados.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BancoDados.h; sourceTree = "<group>"; };
+		1BCE26741AC3371C00E2CCB0 /* BancoDados.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BancoDados.m; sourceTree = "<group>"; };
 		1BD244B61AC1ADCD00ED0449 /* CadastroUsuario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CadastroUsuario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD244BA1AC1ADCD00ED0449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD244BB1AC1ADCD00ED0449 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,7 +89,11 @@
 			children = (
 				1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */,
 				1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */,
+				1B739D1C1AC35180006EF4CE /* PerfilUsuario.h */,
+				1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */,
 				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
+				1BCE26731AC3371C00E2CCB0 /* BancoDados.h */,
+				1BCE26741AC3371C00E2CCB0 /* BancoDados.m */,
 				1BD244BD1AC1ADCD00ED0449 /* AppDelegate.h */,
 				1BD244BE1AC1ADCD00ED0449 /* AppDelegate.m */,
 				1BD244C01AC1ADCD00ED0449 /* Images.xcassets */,
@@ -220,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD244BF1AC1ADCD00ED0449 /* AppDelegate.m in Sources */,
+				1BCE26751AC3371C00E2CCB0 /* BancoDados.m in Sources */,
+				1B739D1E1AC35180006EF4CE /* PerfilUsuario.m in Sources */,
 				1BD244DC1AC1ADFB00ED0449 /* CadastroViewController.m in Sources */,
 				1BD244BC1AC1ADCD00ED0449 /* main.m in Sources */,
 			);
