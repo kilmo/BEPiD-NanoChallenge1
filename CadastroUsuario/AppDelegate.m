@@ -20,6 +20,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     CadastroViewController *cadastroViewController = [ [CadastroViewController alloc] init ];
+    //TouchIDViewController *touchIDViewController = [ [TouchIDViewController alloc] init ];
     
     self.window.rootViewController = cadastroViewController;
     

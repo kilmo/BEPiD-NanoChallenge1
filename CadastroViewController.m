@@ -10,6 +10,7 @@
 #import "BancoDados.h"
 #import "PerfilUsuario.h"
 #import <LocalAuthentication/LocalAuthentication.h>
+#import <UIKit/UIKit.h>
 
 @interface CadastroViewController ()
 
@@ -17,11 +18,11 @@
 @property ( nonatomic, strong ) IBOutlet UIView       *viewFormulario;
 @property ( nonatomic, strong ) IBOutlet UIView       *viewListaUsuarios;
 @property ( nonatomic, strong ) IBOutlet UITableView  *usersTableView;
-@property ( nonatomic, weak   ) IBOutlet UITextField  *userName;
+@property ( nonatomic, strong ) IBOutlet UITextField  *userName;
+@property ( nonatomic, strong ) IBOutlet UITextField  *userID;
+
 //@property ( nonatomic, assign ) IBAction
 @property ( nonatomic, strong ) NSMutableArray        *userListArray;
-
-
 
 @end
 
@@ -78,11 +79,55 @@
     }
 }
 //-------------------------------------------------------------------
+- (void)updateIDlabel: (long int)hash {
+    NSLog( @"Updating label..." );
+    NSString *labelText = [ NSString stringWithFormat: @"%lu", hash ];
+//    self.idHash.text =  [ NSString stringWithFormat: @"%lu", hash ];
+//    [ self.idHash  ] ];
+    [ self.userID setText: labelText ];
+
+    NSLog( @"Updated" );
+    
+}
+//-------------------------------------------------------------------
+- (IBAction)touchIDrequested:(id)sender{
+    LAContext *myContext = [[LAContext alloc] init];
+    NSError *authError = nil;
+    NSString *myLocalizedReasonString = @"Touch ID Test to show Touch ID working in a custom app";
+    
+    if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                  localizedReason:myLocalizedReasonString
+                            reply:^(BOOL success, NSError *error) {
+                                if (success) {
+                                    NSLog( @"Success! Hash: %lu", myContext.hash );
+                                    [ self updateIDlabel: myContext.hash ];
+                                } else {
+                                    NSLog( @"Nope!" );
+                                }
+                            }];
+    } else {
+    }
+}
+//-------------------------------------------------------------------
 - (IBAction)adicionaUsuario{
     NSLog( @"Usuário: %@ adicionado.", self.userName.text );
     
-    [ [BancoDados sharedStore] criaUsuario: self.userName.text ];
-    [ self.usersTableView reloadData ];
+    PerfilUsuario *p = [ [BancoDados sharedStore] criaUsuario: self.userName.text ];
+    if( p == nil){
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Usuario ja cadastrado" message:@"Por favor, cadastre outro usuario." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else {
+        
+        [ self.usersTableView reloadData ];
+        [ self.userName resignFirstResponder ];
+    }
     
 }
 //-------------------------------------------------------------------
@@ -97,6 +142,11 @@
 //    // Return the number of sections.
 //    return 1;
 //}
+//-------------------------------------------------------------------
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [ textField resignFirstResponder ];
+    return YES;
+}
 //-------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -115,30 +165,6 @@
     
     return cell;
 }
-//-------------------------------------------------------------------
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog( @"Oka!" );
-//
-//    // Create an instance of UITableViewCell, with default appearance
-//    UITableViewCell *cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-//                                                    reuseIdentifier: @"UITableViewCell" ];
-//
-//    // Set the text on the cell with the description of the item
-//    // that is at the nth index of items, where n = row this cell
-//    // will appear in on the tableview
-//    NSArray *items = [ [BNRItemStore sharedStore] allItems ];
-//    BNRItem *item = items[ indexPath.row ];
-//
-//    cell.textLabel.text = [ item description ];
-//
-//    return cell;
-//}
-//-------------------------------------------------------------------
-
-
-
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -149,6 +175,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//-------------------------------------------------------------------
 
 /*
 #pragma mark - Navigation

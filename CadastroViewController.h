@@ -10,4 +10,6 @@
 
 @interface CadastroViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+//- (void)updateIDlabel: (long int) hash;
+
 @end

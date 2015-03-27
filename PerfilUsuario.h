@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface PerfilUsuario : NSObject
-
 @property (nonatomic,strong) NSString *nomePessoa;
 
 @end
