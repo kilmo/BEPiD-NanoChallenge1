@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B739D1E1AC35180006EF4CE /* PerfilUsuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */; };
-		1BCD751A1AC5A5EF005E1C83 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCD75161AC5A5EF005E1C83 /* AVCamViewController.m */; };
-		1BCD751B1AC5A5EF005E1C83 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCD75181AC5A5EF005E1C83 /* AVCamPreviewView.m */; };
 		1BCE26751AC3371C00E2CCB0 /* BancoDados.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE26741AC3371C00E2CCB0 /* BancoDados.m */; };
 		1BD244BC1AC1ADCD00ED0449 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244BB1AC1ADCD00ED0449 /* main.m */; };
 		1BD244BF1AC1ADCD00ED0449 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244BE1AC1ADCD00ED0449 /* AppDelegate.m */; };
@@ -18,6 +16,8 @@
 		1BD244D01AC1ADCD00ED0449 /* CadastroUsuarioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244CF1AC1ADCD00ED0449 /* CadastroUsuarioTests.m */; };
 		1BD244DC1AC1ADFB00ED0449 /* CadastroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */; };
 		1BD244DD1AC1ADFB00ED0449 /* CadastroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */; };
+		1BD47B611AC5B5360021C8D0 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD47B5D1AC5B5360021C8D0 /* AVCamViewController.m */; };
+		1BD47B621AC5B5360021C8D0 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD47B5F1AC5B5360021C8D0 /* AVCamPreviewView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +33,6 @@
 /* Begin PBXFileReference section */
 		1B739D1C1AC35180006EF4CE /* PerfilUsuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilUsuario.h; sourceTree = "<group>"; };
 		1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilUsuario.m; sourceTree = "<group>"; };
-		1BCD75161AC5A5EF005E1C83 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
-		1BCD75171AC5A5EF005E1C83 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
-		1BCD75181AC5A5EF005E1C83 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
-		1BCD75191AC5A5EF005E1C83 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		1BCE26731AC3371C00E2CCB0 /* BancoDados.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BancoDados.h; sourceTree = "<group>"; };
 		1BCE26741AC3371C00E2CCB0 /* BancoDados.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BancoDados.m; sourceTree = "<group>"; };
 		1BD244B61AC1ADCD00ED0449 /* CadastroUsuario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CadastroUsuario.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +48,10 @@
 		1BD244D91AC1ADFB00ED0449 /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CadastroViewController.h; path = ../CadastroViewController.h; sourceTree = "<group>"; };
 		1BD244DA1AC1ADFB00ED0449 /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CadastroViewController.m; path = ../CadastroViewController.m; sourceTree = "<group>"; };
 		1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CadastroViewController.xib; path = ../CadastroViewController.xib; sourceTree = "<group>"; };
+		1BD47B5D1AC5B5360021C8D0 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		1BD47B5E1AC5B5360021C8D0 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
+		1BD47B5F1AC5B5360021C8D0 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
+		1BD47B601AC5B5360021C8D0 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +98,12 @@
 				1BD244DB1AC1ADFB00ED0449 /* CadastroViewController.xib */,
 				1B739D1C1AC35180006EF4CE /* PerfilUsuario.h */,
 				1B739D1D1AC35180006EF4CE /* PerfilUsuario.m */,
-				1BCD75161AC5A5EF005E1C83 /* AVCamViewController.m */,
-				1BCD75171AC5A5EF005E1C83 /* AVCamViewController.h */,
-				1BCD75181AC5A5EF005E1C83 /* AVCamPreviewView.m */,
-				1BCD75191AC5A5EF005E1C83 /* AVCamPreviewView.h */,
 				1BCE26731AC3371C00E2CCB0 /* BancoDados.h */,
 				1BCE26741AC3371C00E2CCB0 /* BancoDados.m */,
+				1BD47B5D1AC5B5360021C8D0 /* AVCamViewController.m */,
+				1BD47B5E1AC5B5360021C8D0 /* AVCamViewController.h */,
+				1BD47B5F1AC5B5360021C8D0 /* AVCamPreviewView.m */,
+				1BD47B601AC5B5360021C8D0 /* AVCamPreviewView.h */,
 				1BD244BD1AC1ADCD00ED0449 /* AppDelegate.h */,
 				1BD244BE1AC1ADCD00ED0449 /* AppDelegate.m */,
 				1BD244C01AC1ADCD00ED0449 /* Images.xcassets */,
@@ -243,9 +243,9 @@
 				1BCE26751AC3371C00E2CCB0 /* BancoDados.m in Sources */,
 				1B739D1E1AC35180006EF4CE /* PerfilUsuario.m in Sources */,
 				1BD244DC1AC1ADFB00ED0449 /* CadastroViewController.m in Sources */,
-				1BCD751B1AC5A5EF005E1C83 /* AVCamPreviewView.m in Sources */,
+				1BD47B621AC5B5360021C8D0 /* AVCamPreviewView.m in Sources */,
 				1BD244BC1AC1ADCD00ED0449 /* main.m in Sources */,
-				1BCD751A1AC5A5EF005E1C83 /* AVCamViewController.m in Sources */,
+				1BD47B611AC5B5360021C8D0 /* AVCamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
