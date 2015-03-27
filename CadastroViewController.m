@@ -79,10 +79,10 @@
 
 //-------------------------------------------------------------------
 - (void)updateIDlabel: (long int)hash {
-    NSLog( @"Updating label..." );
     NSString *labelText = [ NSString stringWithFormat: @"%lu", hash ];
+    NSLog( @"Updating label... hash: %@", labelText );
     
-    
+    [ self.userID resignFirstResponder ];
     [ self.userID setText: labelText ];
 
     NSLog( @"Updated" );
@@ -109,12 +109,12 @@
                                     
                                     self.LIuserID = self.myContext.hash;
                                 }
+                                [ self updateIDlabel: self.LIuserID ];
                             }];
     } else {
-//        self.LIuserID = self.myContext.hash;
+        self.LIuserID = self.myContext.hash;
     }
     //self.labelUserID.text = [ NSString stringWithFormat: @"%lu", self.LIuserID ];
-    [ self updateIDlabel: self.LIuserID ];
   //  self.LIuserID = deviceOwner;
 }
 //-------------------------------------------------------------------
