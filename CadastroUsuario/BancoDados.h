@@ -18,7 +18,8 @@
 +(instancetype) sharedStore; //permite ter somente uma instancia desse objeto
 
 
--(PerfilUsuario *) criaUsuario: (NSString*)nomeUsuario;
+-(PerfilUsuario *) criaUsuario: (NSString*)nomeUsuario nascimento: (NSDate*) dataNasc
+                    id_digital:(long int) digital;
 
 
 @end

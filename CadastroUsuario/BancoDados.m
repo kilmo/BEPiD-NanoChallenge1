@@ -48,11 +48,15 @@
     return [self.bancoDados copy];
 }
 
--(PerfilUsuario *) criaUsuario: (NSString*) nomeUsuario{
+-(PerfilUsuario *) criaUsuario: (NSString*) nomeUsuario
+                    nascimento: (NSDate*) dataNasc
+                    id_digital:(long int) digital{
     
     
     PerfilUsuario *usuario = [[PerfilUsuario alloc]init];
     usuario.nomePessoa = nomeUsuario;
+    usuario.dataNascimento = dataNasc;
+    usuario.id_digital = digital;
     //Para comparar os atributos tem que comparar um por um colocando-os no array ou usando o predicate
     // se forem vários atributos para comparar é melhor utilizar o predicate
     NSArray *names = [self.bancoDados valueForKey:@"nomePessoa"];

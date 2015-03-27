@@ -11,5 +11,8 @@
 @interface PerfilUsuario : NSObject
 
 @property (nonatomic,strong) NSString *nomePessoa;
+@property (nonatomic,strong) NSString *fotoPessoa;
+@property (nonatomic,strong) NSDate *dataNascimento;
+@property (nonatomic) long int id_digital;
 
 @end
