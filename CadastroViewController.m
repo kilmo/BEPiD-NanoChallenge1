@@ -9,6 +9,7 @@
 #import "CadastroViewController.h"
 #import "BancoDados.h"
 #import "PerfilUsuario.h"
+#import "SimpleTableCell.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <UIKit/UIKit.h>
 
@@ -21,8 +22,14 @@
 @property ( nonatomic, strong ) IBOutlet UITextField  *userName;
 @property ( nonatomic, strong ) IBOutlet UITextField  *userID;
 
-//@property ( nonatomic, assign ) IBAction
-@property ( nonatomic, strong ) NSMutableArray        *userListArray;
+@property ( nonatomic, weak ) IBOutlet UILabel *labelName;
+@property ( nonatomic, weak ) IBOutlet UILabel *labelDate;
+@property ( nonatomic, weak ) IBOutlet UILabel *labelUserID;
+@property ( nonatomic, weak ) IBOutlet UIImageView *thumbnailView;
+
+
+@property ( nonatomic, strong ) NSMutableArray *userListArray;
+@property ( nonatomic, strong ) NSArray        *thumbnails;
 
 @end
 
@@ -62,28 +69,10 @@
     
 }
 
-//Parte Felipe
-
-//-------------------------------------------------------------------
-- (IBAction)authenticateButtonTapped:(id)sender {
-    LAContext *context = [ [LAContext alloc] init];
-    
-    NSError *error = nil;
-    
-    if ( [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error] ){
-        NSLog( @"User authenticated!");
-    }
-    else {
-        NSLog( @"User NOT authenticated!");
-        
-    }
-}
 //-------------------------------------------------------------------
 - (void)updateIDlabel: (long int)hash {
     NSLog( @"Updating label..." );
     NSString *labelText = [ NSString stringWithFormat: @"%lu", hash ];
-//    self.idHash.text =  [ NSString stringWithFormat: @"%lu", hash ];
-//    [ self.idHash  ] ];
     [ self.userID setText: labelText ];
 
     NSLog( @"Updated" );
@@ -100,14 +89,15 @@
                   localizedReason:myLocalizedReasonString
                             reply:^(BOOL success, NSError *error) {
                                 if (success) {
-                                    NSLog( @"Success! Hash: %lu", myContext.hash );
-                                    [ self updateIDlabel: myContext.hash ];
                                 } else {
                                     NSLog( @"Nope!" );
                                 }
                             }];
     } else {
     }
+
+    NSLog( @"Success! Hash: %lu", myContext.hash );
+    [ self updateIDlabel: myContext.hash ];
 }
 //-------------------------------------------------------------------
 - (IBAction)adicionaUsuario{
@@ -127,6 +117,14 @@
         
         [ self.usersTableView reloadData ];
         [ self.userName resignFirstResponder ];
+        [ self.userName setText: @"" ];
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Usuário adicionado" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     
 }
@@ -149,28 +147,58 @@
 }
 //-------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSLog( @"Creating cells..." );
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
-    
+
     NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
     PerfilUsuario *usuario = bDados[ indexPath.row ];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
     
-    if ( cell == nil ){
-        cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                       reuseIdentifier: @"UITableViewCell"];
+    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:
+                                                simpleTableIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    cell.textLabel.text = usuario.nomePessoa;
+    cell.nameLabel.text = [ usuario nomePessoa ];
+   // cell.thumbnailImageView.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
+   // cell.prepTimeLabel.text = [prepTime objectAtIndex:indexPath.row];
     
     return cell;
+    
+//    NSLog( @"Creating cells..." );
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"SimpleTableCell"];
+//    
+//    NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
+//    
+//    PerfilUsuario *usuario = bDados[ indexPath.row ];
+//    
+//    if ( cell == nil ){
+////        NSArray *nib= [ [NSBundle mainBundle] loadNibNamed: @"SimpleTableCell"
+////                                                     owner: self
+////                                                   options: nil ];
+//        
+//        //cell = [ nib objectAtIndex: 0 ];
+//        cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+//                                       reuseIdentifier: @"SimpleTableCell"];
+//    }
+//    
+//    cell.labelName.text = usuario.nomePessoa;
+//    cell.labelDate.text = @"DATA";
+//    cell.thumbnailView.image = [ UIImage imageNamed: [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] ];
+//    NSLog( @"IMG[%lu]: %@", indexPath.row, [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] );
+//    
+//    return cell;
 }
-
+//-------------------------------------------------------------------
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.thumbnails = [ NSArray arrayWithObjects: @"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", nil ];
+    NSLog( @"Setting thumbnails array..." );
 }
-
+//-------------------------------------------------------------------
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
