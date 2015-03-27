@@ -2,14 +2,12 @@
 //  BancoDados.h
 //  CadastroUsuario
 //
-//  Created by Érika Tiemi Uehara Moriya on 3/25/15.
+//  Created by Érika Tiemi Uehara Moriya on 3/27/15.
 //  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
 @class PerfilUsuario;
-
 
 @interface BancoDados : NSObject
 
@@ -18,7 +16,10 @@
 +(instancetype) sharedStore; //permite ter somente uma instancia desse objeto
 
 
--(PerfilUsuario *) criaUsuario: (NSString*)nomeUsuario;
+-(PerfilUsuario *) criaUsuario: (NSString*)nomeUsuario nascimento: (NSDate*) dataNasc
+                    id_digital:(long int) digital;
+
+
 
 
 @end

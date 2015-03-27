@@ -7,7 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CadastroViewController">
             <connections>
                 <outlet property="scrollView" destination="S4h-n4-NIP" id="hwn-ak-oIX"/>
-                <outlet property="userBirthday" destination="hmY-WY-VTR" id="VxB-6b-glL"/>
                 <outlet property="userID" destination="4pp-9k-41p" id="PmC-39-OYU"/>
                 <outlet property="userName" destination="PoE-0c-ThC" id="QIz-Bp-MXh"/>
                 <outlet property="usersTableView" destination="tbN-Gc-iSh" id="D6z-3s-Z1P"/>
@@ -52,66 +51,19 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-0c-ThC">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-0c-ThC">
                     <rect key="frame" x="76" y="127" width="252" height="30"/>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <rect key="frame" x="26" y="187" width="324" height="30"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <rect key="frame" x="61" y="127" width="252" height="30"/>
                     </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="L4t-el-xt1"/>
                     </connections>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRi-yv-xdc">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="26" y="62" width="62" height="21"/>
-                    </variation>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-9k-41p" userLabel="txtUserID">
-                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="91" y="58" width="137" height="30"/>
-                    </variation>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTM-sF-jMh" userLabel="buttonNewID">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <state key="normal" title="Gerar novo ID">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="139" y="111" width="96" height="30"/>
-                    </variation>
-                    <connections>
-                        <action selector="touchIDrequested:" destination="-1" eventType="touchUpInside" id="KzP-eA-Vne"/>
-                    </connections>
-                </button>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-WY-VTR">
-                    <rect key="frame" x="-160" y="-81" width="320" height="162"/>
-                    <date key="date" timeIntervalSinceReferenceDate="449165718.275379">
-                        <!--2015-03-27 16:15:18 +0000-->
-                    </date>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="270" width="375" height="162"/>
-                    </variation>
-                </datePicker>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de Nascimento:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxT-kB-gN5">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="26" y="241" width="162" height="21"/>
-                    </variation>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-11-pl7">
                     <rect key="frame" x="185" y="180" width="143" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -119,57 +71,82 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="116" y="504" width="143" height="34"/>
+                        <rect key="frame" x="170" y="586" width="143" height="34"/>
                     </variation>
                     <connections>
                         <action selector="adicionaUsuario" destination="-1" eventType="touchUpInside" id="p1d-fA-2hJ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRi-yv-xdc">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="61" y="62" width="62" height="21"/>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTM-sF-jMh" userLabel="buttonNewID">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="Gerar novo ID">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="61" y="83" width="96" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="touchIDrequested:" destination="-1" eventType="touchUpInside" id="KzP-eA-Vne"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-9k-41p" userLabel="txtUserID">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="131" y="58" width="97" height="30"/>
+                    </variation>
+                </textField>
             </subviews>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="KRi-yv-xdc"/>
-                    <exclude reference="4pp-9k-41p"/>
                     <exclude reference="XTM-sF-jMh"/>
-                    <exclude reference="hmY-WY-VTR"/>
-                    <exclude reference="sxT-kB-gN5"/>
+                    <exclude reference="4pp-9k-41p"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="KRi-yv-xdc"/>
-                    <include reference="4pp-9k-41p"/>
                     <include reference="XTM-sF-jMh"/>
-                    <include reference="hmY-WY-VTR"/>
-                    <include reference="sxT-kB-gN5"/>
+                    <include reference="4pp-9k-41p"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="119.5" y="361.5"/>
+            <point key="canvasLocation" x="123.5" y="355.5"/>
         </view>
         <view contentMode="center" id="BnV-Ph-mu3" userLabel="viewListaUsuarios">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tbN-Gc-iSh">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tbN-Gc-iSh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="101" width="375" height="566"/>
                     </variation>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="wGm-kv-7WZ"/>
                         <outlet property="delegate" destination="-1" id="rMM-0E-Bdo"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuários" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILE-ct-FKM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuários" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e33-Ao-AD4">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="118" y="62" width="138" height="21"/>
+                        <rect key="frame" x="148" y="49" width="81" height="21"/>
                     </variation>
                 </label>
             </subviews>
@@ -179,13 +156,13 @@
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="tbN-Gc-iSh"/>
-                    <exclude reference="ILE-ct-FKM"/>
+                    <exclude reference="e33-Ao-AD4"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="tbN-Gc-iSh"/>
-                    <include reference="ILE-ct-FKM"/>
+                    <include reference="e33-Ao-AD4"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="562.5" y="355.5"/>

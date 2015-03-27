@@ -2,7 +2,7 @@
 //  BancoDados.m
 //  CadastroUsuario
 //
-//  Created by Érika Tiemi Uehara Moriya on 3/25/15.
+//  Created by Érika Tiemi Uehara Moriya on 3/27/15.
 //  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
 //
 
@@ -48,11 +48,15 @@
     return [self.bancoDados copy];
 }
 
--(PerfilUsuario *) criaUsuario: (NSString*) nomeUsuario{
-  
+-(PerfilUsuario *) criaUsuario: (NSString*) nomeUsuario
+                    nascimento: (NSDate*) dataNasc
+                    id_digital:(long int) digital{
+    
     
     PerfilUsuario *usuario = [[PerfilUsuario alloc]init];
     usuario.nomePessoa = nomeUsuario;
+    usuario.dataNascimento = dataNasc;
+    usuario.id_digital = digital;
     //Para comparar os atributos tem que comparar um por um colocando-os no array ou usando o predicate
     // se forem vários atributos para comparar é melhor utilizar o predicate
     NSArray *names = [self.bancoDados valueForKey:@"nomePessoa"];
@@ -63,17 +67,11 @@
         return nil;
     }
     else{
-    
+        
         [self.bancoDados addObject:usuario];
     }
     return usuario;
     
 }
 
-
-
-
-
-
 @end
-

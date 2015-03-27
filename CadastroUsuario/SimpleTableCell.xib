@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpleTableCell">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CadastroViewController">
             <connections>
-                <outlet property="nameLabel" destination="gmO-Ri-naF" id="X9D-2v-DSg"/>
+                <outlet property="nameLabel" destination="gmO-Ri-naF" id="0ko-Nr-64d"/>
                 <outlet property="thumbnailImageView" destination="OBi-h2-Poj" id="pEX-uX-mKy"/>
             </connections>
         </placeholder>

@@ -21,6 +21,7 @@
 @property ( nonatomic, strong ) IBOutlet UITableView  *usersTableView;
 @property ( nonatomic, strong ) IBOutlet UITextField  *userName;
 @property ( nonatomic, strong ) IBOutlet UITextField  *userID;
+@property ( nonatomic, strong ) IBOutlet UIDatePicker *userBirthday;
 
 @property ( nonatomic, weak ) IBOutlet UILabel *labelName;
 @property ( nonatomic, weak ) IBOutlet UILabel *labelDate;
@@ -30,6 +31,13 @@
 
 @property ( nonatomic, strong ) NSMutableArray *userListArray;
 @property ( nonatomic, strong ) NSArray        *thumbnails;
+@property ( nonatomic, strong ) LAContext      *myContext;
+@property ( nonatomic         ) long int       LIuserID;
+
+@property (nonatomic, strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *prepTimeLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
+
 
 @end
 
@@ -73,6 +81,8 @@
 - (void)updateIDlabel: (long int)hash {
     NSLog( @"Updating label..." );
     NSString *labelText = [ NSString stringWithFormat: @"%lu", hash ];
+    
+    
     [ self.userID setText: labelText ];
 
     NSLog( @"Updated" );
@@ -80,30 +90,41 @@
 }
 //-------------------------------------------------------------------
 - (IBAction)touchIDrequested:(id)sender{
-    LAContext *myContext = [[LAContext alloc] init];
+    self.myContext = [[LAContext alloc] init];
+  //  long int deviceOwner = 200;
+    self.LIuserID = 0;
     NSError *authError = nil;
     NSString *myLocalizedReasonString = @"Touch ID Test to show Touch ID working in a custom app";
     
-    if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
-        [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+    if ([self.myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        [self.myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                   localizedReason:myLocalizedReasonString
                             reply:^(BOOL success, NSError *error) {
                                 if (success) {
+                                    self.LIuserID = 200;
+                                    NSLog( @"Success! Hash: %lu", self.LIuserID );
+                                    
                                 } else {
                                     NSLog( @"Nope!" );
+                                    
+                                    self.LIuserID = self.myContext.hash;
                                 }
                             }];
     } else {
+//        self.LIuserID = self.myContext.hash;
     }
-
-    NSLog( @"Success! Hash: %lu", myContext.hash );
-    [ self updateIDlabel: myContext.hash ];
+    //self.labelUserID.text = [ NSString stringWithFormat: @"%lu", self.LIuserID ];
+    [ self updateIDlabel: self.LIuserID ];
+  //  self.LIuserID = deviceOwner;
 }
 //-------------------------------------------------------------------
 - (IBAction)adicionaUsuario{
     NSLog( @"Usuário: %@ adicionado.", self.userName.text );
     
-    PerfilUsuario *p = [ [BancoDados sharedStore] criaUsuario: self.userName.text ];
+    PerfilUsuario *p =     [[BancoDados sharedStore] criaUsuario: self.userName.text
+                                                      nascimento: self.userBirthday.date
+                                                      id_digital: self.LIuserID];
+
     if( p == nil){
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Usuario ja cadastrado" message:@"Por favor, cadastre outro usuario." preferredStyle:UIAlertControllerStyleAlert];
@@ -148,48 +169,45 @@
 //-------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
-    PerfilUsuario *usuario = bDados[ indexPath.row ];
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    
-    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:
-                                                simpleTableIdentifier];
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    cell.nameLabel.text = [ usuario nomePessoa ];
-   // cell.thumbnailImageView.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
-   // cell.prepTimeLabel.text = [prepTime objectAtIndex:indexPath.row];
-    
-    return cell;
-    
-//    NSLog( @"Creating cells..." );
+//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
 //    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"SimpleTableCell"];
-//    
-//    NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
-//    
-//    PerfilUsuario *usuario = bDados[ indexPath.row ];
-//    
-//    if ( cell == nil ){
-////        NSArray *nib= [ [NSBundle mainBundle] loadNibNamed: @"SimpleTableCell"
-////                                                     owner: self
-////                                                   options: nil ];
-//        
-//        //cell = [ nib objectAtIndex: 0 ];
-//        cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-//                                       reuseIdentifier: @"SimpleTableCell"];
+//    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (cell == nil)
+//    {
+//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner: self options:nil];
+//        cell = [nib objectAtIndex:0];
 //    }
 //    
-//    cell.labelName.text = usuario.nomePessoa;
-//    cell.labelDate.text = @"DATA";
-//    cell.thumbnailView.image = [ UIImage imageNamed: [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] ];
-//    NSLog( @"IMG[%lu]: %@", indexPath.row, [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] );
+//    cell.nameLabel.text = @"NOME";
+//   // cell.thumbnailImageView.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
+//    cell.prepTimeLabel.text = @"PREP TIME";
 //    
 //    return cell;
+    
+    NSLog( @"Creating cells..." );
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"SimpleTableCell"];
+    
+    NSArray *bDados = [ [BancoDados sharedStore] listaNomes ];
+    
+    PerfilUsuario *usuario = bDados[ indexPath.row ];
+    
+    if ( cell == nil ){
+//        NSArray *nib= [ [NSBundle mainBundle] loadNibNamed: @"SimpleTableCell"
+//                                                     owner: self
+//                                                   options: nil ];
+        
+        //cell = [ nib objectAtIndex: 0 ];
+        cell = [ [UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                       reuseIdentifier: @"SimpleTableCell"];
+    }
+    
+    cell.textLabel.text = [ NSString stringWithFormat: @"%@   %lu   %@", usuario.nomePessoa, usuario.id_digital, usuario.dataNascimento ];
+    //cell.labelDate.text = @"DATA";
+    cell.imageView.image = [ UIImage imageNamed: [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] ];
+    NSLog( @"IMG[%lu]: %@", indexPath.row, [self.thumbnails objectAtIndex: (indexPath.row %(self.thumbnails.count))] );
+    
+    return cell;
 }
 //-------------------------------------------------------------------
 - (void)viewDidLoad {
